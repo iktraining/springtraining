@@ -8,7 +8,7 @@ import com.example.demo.dataaccess.ProductDaoImpl;
 
 @Configuration
 public class AppConfig {
-	@Bean//参考書ではautowireが使われているが5.1以降非推奨なので使用しない
+	@Bean//参考書では括弧の中にautowireが使われているがSpring5.1以降非推奨なので使用しない
 	public ProductServiceImpl productService() {
 		return new ProductServiceImpl();
 	}

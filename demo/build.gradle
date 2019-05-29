@@ -1,5 +1,5 @@
 plugins {
-	id 'org.springframework.boot' version '2.1.4.RELEASE'
+	id 'org.springframework.boot' version '2.1.5.RELEASE'
 	id 'java'
 	id 'eclipse'
 	id 'application'
@@ -17,7 +17,19 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	//追記したけど意味がなかった
-	//implementation 'org.springframework.boot:spring-boot-starter-aop'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+	implementation 'org.springframework:spring-context:5.1.7.RELEASE'
+	implementation 'org.springframework:spring-orm:5.1.7.RELEASE'
+	//DB
+	implementation 'org.hsqldb:hsqldb'
+
+	//DriverManagerDataSource
+	implementation 'org.apache.tomcat:tomcat-dbcp:9.0.20'
+
+	//ORM連携 - Hibernate
+    implementation 'org.hibernate:hibernate-core:5.4.2.Final'
+    implementation 'org.springframework:spring-orm:5.1.7.RELEASE'
 }

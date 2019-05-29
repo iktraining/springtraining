@@ -12,10 +12,12 @@ import com.example.aop.business.service.ProductDao;
 public class ProductDaoImpl implements ProductDao{
 	private Map<String, Product> storage = new HashMap<String, Product>();
 
+	@Override
 	public Product findProduct(String name) {
 		return storage.get(name);
 	}
 
+	@Override
 	public void addProduct(Product product) {
 		storage.put(product.getName(), product);
 	}

@@ -17,18 +17,24 @@ public class ProductSampleRunByJavaConfig {
 
 	@SuppressWarnings("resource")
 	public void execute() {
-		//アノテーションを使用した場合
+		//xml形式のBean定義を使用した場合
 		//BeanFactory ctx = new ClassPathXmlApplicationContext("/com/example/config/applicationContext.xml");
 
 		//JavaConfigを使用した場合
-		//参考書では左辺がApplicationContextとなっているが5.1では右辺からの変換ができないため
+		//参考書では左辺がApplicationContextとなっているがSpring5.1では右辺からの変換ができないため
 		//AnnotationConfigApplicationContextを使用している
-		AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-		ProductService productService = applicationContext.getBean(ProductService.class);
+		AnnotationConfigApplicationContext applicationContext =
+				new AnnotationConfigApplicationContext(AppConfig.class);
 
-		productService.addProduct(new Product("ホチキス", 100));
+		ProductService productService =
+				applicationContext.getBean(ProductService.class);
 
-		Product product = productService.findByProductName("ホチキス");
-		System.out.println(product);
+		productService.addProduct(new Product("ホチキス", 320));
+		productService.addProduct(new Product("ノート", 150));
+		productService.addProduct(new Product("ボールペン", 100));
+
+		System.out.println(productService.findByProductName("ノート"));
+		System.out.println(productService.findByProductName("ホチキス"));
+		System.out.println(productService.findByProductName("ボールペン"));
 	}
 }
